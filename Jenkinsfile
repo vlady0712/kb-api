@@ -14,7 +14,6 @@ pipeline {
                cp -r . $root_path_api
                cd $root_path_api
                npm i
-               npm run build
                pm2 reload ecosystem.config.js --update-env
                '''
             }
