@@ -14,7 +14,7 @@ pipeline {
                cp -r . $root_path_api
                cd $root_path_api
                npm i
-               pm2 reload ${base_url}.ecosystem.config.js --update-env
+               pm2 reload ${base_url}-ecosystem.config.js --update-env
                '''
             }
         }
