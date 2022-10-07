@@ -4,6 +4,7 @@ pipeline {
 
     environment {
         root_path_api = "/var/www/${base_url}/api"
+        env_directory = "$root_path_api/environment/${env_name}"
     }
     stages {
         stage('build Strapi') {
@@ -14,6 +15,7 @@ pipeline {
                cp -r . $root_path_api
                cd $root_path_api
                npm i
+               cp .env.${env_name} .env
                pm2 reload ${base_url}-ecosystem.config.js --update-env
                '''
             }
